@@ -4,7 +4,7 @@ import SideBar from "./SideBar";
 
 export default function Container() {
   return (
-    <main >
+    <main>
         <Header />
         <ItemList />
         <SideBar />
