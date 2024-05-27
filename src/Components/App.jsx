@@ -9,13 +9,46 @@ import { initialItems } from "../lib/init";
 function App() {
   const [items, setItems] = useState(initialItems);
 
+  const handleAddItem = (value) => {
+    const newItem = {
+      name: value,
+      packed: false,
+    };
+    const NewItems = [...items , newItem];
+    setItems(NewItems);
+  }
+
+  const handleMarkAllAsComplete=()=>{
+    const NewItems = items.map(item=>{
+      return {...item,packed:true}
+    });
+
+    setItems(NewItems);
+  }
+
+  const handleMarkAllAsIncomplete=()=>{
+    const NewItems = items.map(item=>{
+      return {...item,packed:false}
+    });
+
+    setItems(NewItems);
+  }
+
+  const handleRemoveAllItems=()=>{
+    setItems([]);
+  }
+  
+  const handleResetToInitial=()=>{
+    setItems(initialItems);
+  }
+  
   return (
     <>
       <BackgroundHeading />
       <main>
         <Header />
         <ItemList items={items} />
-        <SideBar action={setItems} />
+        <SideBar handleAddItem={handleAddItem} handleMarkAllAsComplete={handleMarkAllAsComplete} handleMarkAllAsIncomplete={handleMarkAllAsIncomplete} handleResetToInitial={handleResetToInitial} handleRemoveAllItems={handleRemoveAllItems} />
       </main>
       <Footer />
     </>

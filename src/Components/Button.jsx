@@ -1,7 +1,10 @@
-import {OnClicked} from '../lib/dummy'
-
-export default function Button({type , text , action = OnClicked }) {
+export default function Button({ buttonType, action, children }) {
   return (
-    <button onClick={action} className={`btn ${type === 'secondary' ? 'btn--secondary' : ''}`}>{text}</button>
-  )
+    <button
+      onClick={action}
+      className={`btn ${buttonType === "secondary" ? "btn--secondary" : ""}`}
+    >
+      {children}
+    </button>
+  );
 }
