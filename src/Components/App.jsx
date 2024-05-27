@@ -13,8 +13,14 @@ function App() {
     const newItem = {
       name: value,
       packed: false,
+      id: new Date().getTime(),
     };
     const NewItems = [...items , newItem];
+    setItems(NewItems);
+  }
+
+  const handleDeleteItem = (id) => {
+    const NewItems = items.filter((item) => item.id !== id);
     setItems(NewItems);
   }
 
@@ -47,7 +53,7 @@ function App() {
       <BackgroundHeading />
       <main>
         <Header />
-        <ItemList items={items} />
+        <ItemList handleDeleteItem={handleDeleteItem} items={items} />
         <SideBar handleAddItem={handleAddItem} handleMarkAllAsComplete={handleMarkAllAsComplete} handleMarkAllAsIncomplete={handleMarkAllAsIncomplete} handleResetToInitial={handleResetToInitial} handleRemoveAllItems={handleRemoveAllItems} />
       </main>
       <Footer />

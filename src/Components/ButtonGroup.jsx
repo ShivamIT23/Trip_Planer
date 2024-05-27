@@ -1,20 +1,42 @@
 import Button from "./Button";
 
-export default function ButtonGroup({handleMarkAllAsComplete, handleMarkAllAsIncomplete, handleResetToInitial, handleRemoveAllItems }) {
+export default function ButtonGroup({
+  handleMarkAllAsComplete,
+  handleMarkAllAsIncomplete,
+  handleResetToInitial,
+  handleRemoveAllItems,
+}) {
+  const seondaryButton = [
+    {
+      text: "Mark all as complete",
+      onClick: handleMarkAllAsComplete,
+    },
+    {
+      text: "Mark all as incomplete",
+      onClick: handleMarkAllAsIncomplete,
+    },
+    {
+      text: "Reset to initial",
+      onClick: handleResetToInitial,
+    },
+    {
+      text: "Remove all items",
+      onClick: handleRemoveAllItems,
+    },
+  ];
+
   return (
     <section className="button-group">
-      <Button action={handleMarkAllAsComplete} buttonType="secondary">
-        Mark all as complete
-      </Button>
-      <Button action={handleMarkAllAsIncomplete} buttonType="secondary">
-        Mark all as incomplete
-      </Button>
-      <Button action={handleResetToInitial} buttonType="secondary">
-        Reset to initial
-      </Button>
-      <Button action={handleRemoveAllItems} buttonType="secondary">
-        Remove all items
-      </Button>
+      {seondaryButton.map((but) => {
+        return (
+          <Button
+            key={but.text + but.onClick.toString()}
+            text={but.text}
+            onClick={but.onClick}
+            buttonType="secondary"
+          />
+        );
+      })}
     </section>
   );
 }
