@@ -1,4 +1,4 @@
-import {OnClicked} from '../../lib/dummy'
+import {OnClicked} from '../lib/dummy'
 
 export default function Button({type , text , action = OnClicked }) {
   return (

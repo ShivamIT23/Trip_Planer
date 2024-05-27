@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { secondaryButtons } from "../../lib/init";
+import { secondaryButtons } from "../lib/init";
 
 
 export default function ButtonGroup() {
