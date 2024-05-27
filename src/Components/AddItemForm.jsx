@@ -1,9 +1,11 @@
+import { ItemContext } from "../contexts/ItemsContextProvider";
 import Button from "./Button";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
-export default function AddItemForm({ onAddItem}) {
+export default function AddItemForm() {
   const [value, setValue] = useState("");
   const InputRef = useRef();
+  const {handleAddItem} = useContext(ItemContext);
 
   function handleChange(e) {
     setValue(e.target.value);
@@ -16,7 +18,7 @@ export default function AddItemForm({ onAddItem}) {
       InputRef.current.focus();
       return;
     }
-    onAddItem(value);
+    handleAddItem(value);
     setValue("");
   }
 
