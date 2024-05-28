@@ -41,7 +41,7 @@ export default function ItemList() {
   );
 
   return (
-    <ul className="item-list">
+    <ul className={`item-list ${items.length === 0 && "item-list-empty"} `}>
       {items.length === 0 && <EmptyView />}
 
       {items.length > 0 && (

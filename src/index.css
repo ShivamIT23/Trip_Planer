@@ -73,7 +73,7 @@ header {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   background-color: #fff;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: red orange;
   scrollbar-width: thin;
   position: relative;
@@ -303,4 +303,11 @@ footer {
   font-size: 12px;
   opacity: 0.5;
   margin-top: 12px;
+}
+
+.item-list-empty {
+  position: absolute ;
+  top : 50%;
+  left : 50%;
+  transform: translate(-50% , -50%);
 }
