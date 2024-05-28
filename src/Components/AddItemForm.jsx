@@ -1,11 +1,11 @@
-import { useItemContext } from "../lib/hooks";
+import { useItemsStore } from "../stores/itemsStore";
 import Button from "./Button";
 import { useRef, useState } from "react";
 
 export default function AddItemForm() {
   const [value, setValue] = useState("");
   const InputRef = useRef();
-  const {handleAddItem} = useItemContext();
+  const addItem = useItemsStore(state => state.addItem)
 
   function handleChange(e) {
     setValue(e.target.value);
@@ -18,7 +18,7 @@ export default function AddItemForm() {
       InputRef.current.focus();
       return;
     }
-    handleAddItem(value);
+    addItem(value);
     setValue("");
   }
 
